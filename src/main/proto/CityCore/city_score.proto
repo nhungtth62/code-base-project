@@ -1,0 +1,9 @@
+syntax = "proto3";
+package com.example.demogrpc.grpc.CityCore;
+
+import "Base/base_response.proto";
+import "CityCore/city_score_request.proto";
+
+service CityScoreService {
+  rpc calculateCityScore(CityScoreRequest) returns (com.example.demogrpc.grpc.Base.Response) {};
+}

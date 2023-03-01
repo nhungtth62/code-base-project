@@ -1,0 +1,6 @@
+syntax = "proto3";
+package com.example.demogrpc.grpc.CityCore;
+
+message CityScoreResponse {
+  int32 score = 1;
+}

@@ -1,0 +1,8 @@
+syntax = "proto3";
+package com.example.demogrpc.grpc.Base;
+
+enum StatusCode {
+  SUCCESS = 0;
+  INVALID = 1;
+
+}
