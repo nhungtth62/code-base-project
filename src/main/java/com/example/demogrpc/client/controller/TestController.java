@@ -1,7 +1,7 @@
-package com.example.demogrpc.client.Controller;
+package com.example.demogrpc.client.controller;
 
-import com.example.demogrpc.client.Service.CityScoreService;
-import com.example.demogrpc.client.Service.HelloService;
+import com.example.demogrpc.client.service.CityScoreService;
+import com.example.demogrpc.client.service.HelloService;
 import com.example.demogrpc.grpc.CityCore.CityCoreResponse;
 import com.google.protobuf.InvalidProtocolBufferException;
 import lombok.AllArgsConstructor;

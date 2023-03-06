@@ -1,4 +1,4 @@
-package com.example.demogrpc.client.Service;
+package com.example.demogrpc.client.service;
 
 
 import com.example.demogrpc.client.ChannelManager;
@@ -18,7 +18,8 @@ public class HelloService {
 
     @PostConstruct
     void init() {
-       stub = HelloServiceGrpc.newBlockingStub(channelManager.getChannel1());
+       stub = HelloServiceGrpc
+               .newBlockingStub(channelManager.getChannel1());
    }
 
     public HelloResponse getHelloResponse() {

@@ -1,4 +1,4 @@
-package com.example.demogrpc.client.Service;
+package com.example.demogrpc.client.service;
 
 import lombok.Data;
 

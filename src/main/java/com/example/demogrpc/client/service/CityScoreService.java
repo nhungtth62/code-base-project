@@ -1,6 +1,8 @@
-package com.example.demogrpc.client.Service;
+package com.example.demogrpc.client.service;
 
 import com.example.demogrpc.client.ChannelManager;
+import com.example.demogrpc.client.Utils;
+import com.example.demogrpc.client.credential.AuthenticationCallCredentials;
 import com.example.demogrpc.grpc.Base.BaseResponse;
 import com.example.demogrpc.grpc.CityCore.CityScoreRequestOuterClass;
 import com.example.demogrpc.grpc.CityCore.CityScoreServiceGrpc;
@@ -18,11 +20,15 @@ public class CityScoreService {
     @Autowired
     private ChannelManager channelManager;
 
+    @Autowired
+    private Utils utils;
+
     private CityScoreServiceGrpc.CityScoreServiceBlockingStub cityScoreStub;
 
     @PostConstruct
     void init() {
-        cityScoreStub = CityScoreServiceGrpc.newBlockingStub(channelManager.getChannel2());
+        cityScoreStub = CityScoreServiceGrpc.newBlockingStub(channelManager.getChannel2())
+                .withCallCredentials(new AuthenticationCallCredentials(utils.generateToken()));
     }
 
     public BaseResponse.Response getCityScore() {
