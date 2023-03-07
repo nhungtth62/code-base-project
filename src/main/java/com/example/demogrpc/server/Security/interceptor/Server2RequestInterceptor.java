@@ -3,14 +3,15 @@ package com.example.demogrpc.server.Security.interceptor;
 import com.example.demogrpc.server.Constants;
 import io.grpc.*;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 @Slf4j
 public class Server2RequestInterceptor implements ServerInterceptor {
-    @Autowired
-    private ValidateToken validateToken;
+    public ValidateToken validateToken;
+    public Server2RequestInterceptor(){
+        this.validateToken = new ValidateToken();
+    }
 
     @Override
     public <ReqT, RespT> ServerCall.Listener<ReqT> interceptCall(ServerCall<ReqT, RespT> call,

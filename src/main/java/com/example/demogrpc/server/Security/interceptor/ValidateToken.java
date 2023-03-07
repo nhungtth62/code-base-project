@@ -6,13 +6,15 @@ import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jws;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
-import org.springframework.stereotype.Service;
+import lombok.NoArgsConstructor;
+import org.springframework.stereotype.Component;
 
 import javax.crypto.spec.SecretKeySpec;
 import java.security.Key;
 import java.util.Base64;
 
-@Service
+@Component
+@NoArgsConstructor
 public class ValidateToken {
     public static Jws<Claims> parseJwt(String jwtString) {
         Key hmacKey = new SecretKeySpec(Base64.getDecoder().decode(Constants.JWT_SIGNING_KEY),
